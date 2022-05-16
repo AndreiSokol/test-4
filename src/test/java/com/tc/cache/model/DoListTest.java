@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DoListTest<T> {
 
     @InjectMocks
-    private DoList<Cache<Integer, Object>> doublyLinkedList;
+    private DoList<CacheE<Integer, Object>> doublyLinkedList;
 
     @Test
     void whenClear_thenDoClear() {
@@ -26,15 +26,15 @@ class DoListTest<T> {
 
     @Test
     void whenAddElement_thenAdd() {
-        Cache<Integer, Object> element = new Cache<>(1, "data-1");
+        CacheE<Integer, Object> element = new CacheE<>(1, "data-1");
 
-        IniNode<Cache<Integer, Object>> added = doublyLinkedList.add(element);
+        IniNode<CacheE<Integer, Object>> added = doublyLinkedList.add(element);
         assertEquals(1, doublyLinkedList.size());
     }
 
     @Test
     void whenRemoveTailLastElement_thenRemove() {
-        Cache<Integer, Object> element = new Cache<>(1, "data-1");
+        CacheE<Integer, Object> element = new CacheE<>(1, "data-1");
         doublyLinkedList.add(element);
 
         doublyLinkedList.removeTail();
@@ -43,10 +43,10 @@ class DoListTest<T> {
 
     @Test
     void whenRemoveTailElement_thenRemove() {
-        Cache<Integer, Object> element1 = new Cache<>(1, "data-1");
+        CacheE<Integer, Object> element1 = new CacheE<>(1, "data-1");
         doublyLinkedList.add(element1);
 
-        Cache<Integer, Object> element2 = new Cache<>(2, "data-2");
+        CacheE<Integer, Object> element2 = new CacheE<>(2, "data-2");
         doublyLinkedList.add(element2);
 
         doublyLinkedList.removeTail();
@@ -55,42 +55,42 @@ class DoListTest<T> {
 
     @Test
     void whenMoveToFrontWithDummyNode_thenDontMove() {
-        IniNode<Cache<Integer, Object>> node = new DNode<>(new DoList<>());
+        IniNode<CacheE<Integer, Object>> node = new DNode<>(new DoList<>());
 
-        IniNode<Cache<Integer, Object>> movedNode = doublyLinkedList.moveToFront(node);
+        IniNode<CacheE<Integer, Object>> movedNode = doublyLinkedList.moveToFront(node);
         assertTrue(movedNode.isEmpty());
     }
 
     @Test
     void whenUpdateAndMoveToFrontWithDummyNode_thenDontMove() {
-        IniNode<Cache<Integer, Object>> node = new DNode<>(new DoList<>());
-        Cache<Integer, Object> element = new Cache<>(1, "data-1");
+        IniNode<CacheE<Integer, Object>> node = new DNode<>(new DoList<>());
+        CacheE<Integer, Object> element = new CacheE<>(1, "data-1");
 
-        IniNode<Cache<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element);
+        IniNode<CacheE<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element);
         assertTrue(movedNode.isEmpty());
     }
 
     @Test
     void whenUpdateAndMoveToFrontWithSingleNode_thenDoMove() {
-        Cache<Integer, Object> element = new Cache<>(1, "data-1");
-        IniNode<Cache<Integer, Object>> node = doublyLinkedList.add(element);
+        CacheE<Integer, Object> element = new CacheE<>(1, "data-1");
+        IniNode<CacheE<Integer, Object>> node = doublyLinkedList.add(element);
 
-        IniNode<Cache<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element);
+        IniNode<CacheE<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element);
         assertFalse(movedNode.isEmpty());
         assertEquals(1, doublyLinkedList.size());
     }
 
     @Test
     void whenUpdateAndMoveToFrontWithMultiNode_thenDoMove() {
-        Cache<Integer, Object> element1 = new Cache<>(1, "data-1");
+        CacheE<Integer, Object> element1 = new CacheE<>(1, "data-1");
         doublyLinkedList.add(element1);
 
-        Cache<Integer, Object> element2 = new Cache<>(2, "data-2");
-        IniNode<Cache<Integer, Object>> node = doublyLinkedList.add(element2);
+        CacheE<Integer, Object> element2 = new CacheE<>(2, "data-2");
+        IniNode<CacheE<Integer, Object>> node = doublyLinkedList.add(element2);
 
-        Cache<Integer, Object> element3 = new Cache<>(3, "data-3");
+        CacheE<Integer, Object> element3 = new CacheE<>(3, "data-3");
 
-        IniNode<Cache<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element3);
+        IniNode<CacheE<Integer, Object>> movedNode = doublyLinkedList.updateAndMoveToFront(node, element3);
         assertFalse(movedNode.isEmpty());
         assertEquals(2, doublyLinkedList.size());
     }

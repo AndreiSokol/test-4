@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class Cache<K, V> {
+public class CacheE<K, V> {
 	
     private  K key;
     private  V value;
     
-    public Cache(K key, V value) {
+    public CacheE(K key, V value) {
     	this.key = key;
     	this.value = value;
     }

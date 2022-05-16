@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DNodeTest<T> {
 
     @InjectMocks
-    private DNode<Cache<Integer, Object>> dummyNode;
+    private DNode<CacheE<Integer, Object>> dummyNode;
 
     @Test
     void whenGetElement_thenThrowNullPointException() {
@@ -26,13 +26,13 @@ class DNodeTest<T> {
 
     @Test
     void whenGetListReference_thenReturnList() {
-        DoList<Cache<Integer, Object>> list = dummyNode.getListReference();
+        DoList<CacheE<Integer, Object>> list = dummyNode.getListReference();
         assertNull(list);
     }
 
     @Test
     void whenGetNext_thenReturnNext() {
-        IniNode<Cache<Integer, Object>> node = dummyNode.getNext();
+        IniNode<CacheE<Integer, Object>> node = dummyNode.getNext();
         assertTrue(node.isEmpty());
     }
 
