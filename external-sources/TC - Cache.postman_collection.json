@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f794f8ff-45a1-4581-8fe0-5ef33a06c696",
+		"_postman_id": "86063a5e-9129-425a-8232-5fe6b6500e8d",
 		"name": "TC - Cache",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/cache/2",
+					"raw": "http://localhost:8080/cache/0",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -19,7 +19,7 @@
 					"port": "8080",
 					"path": [
 						"cache",
-						"2"
+						"0"
 					]
 				}
 			},
@@ -46,7 +46,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": {{putId}},\n\"data\": \"{{putData}}\"\n\n}",
+					"raw": "{\n    \"id\": {{putId}},\n    \"data\": \"{{putData}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,7 +89,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": {{putId}},\n\"data\": {{putData}}\n\n}",
+					"raw": "{\n    \"id\": {{putId}},\n    \"data\": \"{{putData}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,14 +97,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/lru/",
+					"raw": "http://localhost:8080/cache/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"lru",
+						"cache",
 						""
 					]
 				}
